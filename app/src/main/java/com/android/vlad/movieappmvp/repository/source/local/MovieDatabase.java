@@ -12,6 +12,9 @@ public abstract class MovieDatabase extends RoomDatabase {
 
     private static MovieDatabase INSTANCE;
 
+    public  abstract MoviesDao getMovieDao();
+    public  abstract GenresDao getGenreDao();
+
     private static final Object sLock = new Object();
 
     public static MovieDatabase getInstance(Context context) {

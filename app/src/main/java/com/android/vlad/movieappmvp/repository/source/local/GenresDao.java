@@ -1,15 +1,17 @@
 package com.android.vlad.movieappmvp.repository.source.local;
 
+import androidx.room.Dao;
 import androidx.room.Insert;
 import androidx.room.Query;
 import com.android.vlad.movieappmvp.repository.model.Genre;
 import io.reactivex.Completable;
 import io.reactivex.Flowable;
 
+@Dao
 public interface GenresDao {
 
     @Insert
-    Completable insertMovie(Genre genre);
+    Completable insertGenre(Genre genre);
 
     @Query("SELECT * FROM genres WHERE id= :genreId")
     Flowable<Genre> getGenreById(String genreId);
