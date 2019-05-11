@@ -2,7 +2,6 @@ package com.android.vlad.movieappmvp.repository.source.local;
 
 import androidx.test.runner.AndroidJUnit4;
 import com.android.vlad.movieappmvp.repository.model.Movie;
-import io.reactivex.functions.Predicate;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
@@ -14,12 +13,8 @@ public class MovieDaoTest extends AbstractDaoTest {
     public void insertAndGetMovieById() {
         database.getMovieDao().insertMovie(MOVIE).blockingAwait();
 
-        database.getMovieDao().getMovieById(MOVIE.getMovieId()).test().assertValue(new Predicate<Movie>() {
-            @Override
-            public boolean test(Movie movie) throws Exception {
-                return movie.getMovieId().equals(MOVIE.getMovieId());
-            }
-        });
+        database.getMovieDao().getMovieById(MOVIE.getMovieId()).test().assertValue(
+            movie -> movie.getMovieId().equals(MOVIE.getMovieId()));
     }
 
 }
