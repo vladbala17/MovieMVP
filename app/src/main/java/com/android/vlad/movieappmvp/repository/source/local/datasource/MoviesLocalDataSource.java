@@ -1,8 +1,9 @@
-package com.android.vlad.movieappmvp.repository.source.local;
+package com.android.vlad.movieappmvp.repository.source.local.datasource;
 
 import androidx.annotation.VisibleForTesting;
 import com.android.vlad.movieappmvp.repository.model.Movie;
 import com.android.vlad.movieappmvp.repository.source.MoviesDataSource;
+import com.android.vlad.movieappmvp.repository.source.local.dao.MoviesDao;
 import io.reactivex.Completable;
 import io.reactivex.Flowable;
 import java.util.List;
@@ -43,7 +44,7 @@ public class MoviesLocalDataSource implements MoviesDataSource {
     }
 
     @VisibleForTesting
-    static void clearInstance() {
+    public static void clearInstance() {
         INSTANCE = null;
     }
 }

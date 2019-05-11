@@ -5,6 +5,8 @@ import androidx.room.Room;
 import androidx.test.InstrumentationRegistry;
 import androidx.test.runner.AndroidJUnit4;
 import com.android.vlad.movieappmvp.repository.model.Movie;
+import com.android.vlad.movieappmvp.repository.source.local.dao.MoviesDao;
+import com.android.vlad.movieappmvp.repository.source.local.datasource.MoviesLocalDataSource;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Rule;
@@ -14,10 +16,10 @@ import org.junit.runner.RunWith;
 @RunWith(AndroidJUnit4.class)
 public class MoviesLocalDataSourceTest {
 
+    private static final Movie MOVIE = new Movie("123", "9.5", "Avengers", "26,66");
+
     @Rule
     public InstantTaskExecutorRule instantTaskExecutorRule = new InstantTaskExecutorRule();
-
-    private static final Movie MOVIE = new Movie("123", "9.5", "Avengers", "26,66");
 
     private MovieDatabase movieDatabase =
         Room.inMemoryDatabaseBuilder(InstrumentationRegistry.getContext(), MovieDatabase.class)

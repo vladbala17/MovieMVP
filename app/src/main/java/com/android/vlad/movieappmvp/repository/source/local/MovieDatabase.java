@@ -6,6 +6,8 @@ import androidx.room.Room;
 import androidx.room.RoomDatabase;
 import com.android.vlad.movieappmvp.repository.model.Genre;
 import com.android.vlad.movieappmvp.repository.model.Movie;
+import com.android.vlad.movieappmvp.repository.source.local.dao.GenresDao;
+import com.android.vlad.movieappmvp.repository.source.local.dao.MoviesDao;
 
 @Database(entities = { Movie.class, Genre.class }, version = 1)
 public abstract class MovieDatabase extends RoomDatabase {

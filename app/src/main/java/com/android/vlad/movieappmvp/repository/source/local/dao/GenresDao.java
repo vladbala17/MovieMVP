@@ -1,4 +1,4 @@
-package com.android.vlad.movieappmvp.repository.source.local;
+package com.android.vlad.movieappmvp.repository.source.local.dao;
 
 import androidx.room.Dao;
 import androidx.room.Insert;
